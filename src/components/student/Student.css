@@ -1,0 +1,88 @@
+.main-container-students {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 60%;
+  overflow: scroll;
+  border: solid #e2e2e2 1px;
+  border-radius: 10px;
+  margin: 10%;
+  background-color: #ffffff;
+}
+
+.card {
+  border-bottom: solid 1px #e2e2e2;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border: solid 1px #e2e2e2;
+  border-radius: 100px;
+}
+
+.card-holder {
+  align-items: center;
+  display: flex;
+}
+
+.name {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.details {
+  color: #c9c9c9;
+  font-size: 16px;
+  padding: 15px 0px 0px 20px;
+  font-weight: 500;
+}
+
+#name-input {
+  width: 95%;
+  font-size: 25px;
+  outline: none;
+  border: 0;
+  border-bottom: solid 1px #e2e2e2;
+  padding-top: 15px;
+  font-weight: lighter;
+}
+
+#name-input:focus {
+  border-bottom: solid 1px #838383;
+}
+#add-tag-input {
+  width: 95%;
+  font-size: 25px;
+  outline: none;
+  border: 0;
+  border-bottom: solid 1px #e2e2e2;
+  padding-top: 15px;
+  font-weight: lighter;
+}
+
+#add-tag-input:focus {
+  border-bottom: solid 1px #838383;
+}
+
+.expand-btn {
+  position: relative;
+  left: 88%;
+  /* top: 0px; */
+  font-size: 50px;
+  font-weight: bold;
+  height: 20px;
+  color: #cfcfcf;
+}
+
+.expand-btn:hover {
+  cursor: pointer;
+  color: black;
+}
