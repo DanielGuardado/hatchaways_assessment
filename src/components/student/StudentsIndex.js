@@ -4,12 +4,15 @@ import _ from "underscore";
 import "./Student.css";
 
 const useFetch = (url) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(async () => {
     const response = await fetch(url);
     const data = await response.json();
-    setData(data);
+    const updatedData = data.students.map((el) =>
+      Object.assign({}, el, { tags: [] })
+    );
+    setData(updatedData);
   }, []);
   return { data };
 };
@@ -30,14 +33,14 @@ export default function StudentsIndex() {
   useEffect(() => {
     let results = [];
     if (!data) return;
-    for (const item in data.students) {
-      const lowerCaseFistName = data.students[item]["firstName"].toLowerCase();
-      const lowerCaseLastName = data.students[item]["lastName"].toLowerCase();
+    for (const item in data) {
+      const lowerCaseFistName = data[item]["firstName"].toLowerCase();
+      const lowerCaseLastName = data[item]["lastName"].toLowerCase();
       if (
         lowerCaseFistName.includes(search) ||
         lowerCaseLastName.includes(search)
       ) {
-        results.push(data.students[item]);
+        results.push(data[item]);
       }
     }
     setSearchResults(results);
@@ -61,9 +64,9 @@ export default function StudentsIndex() {
         onChange={handleTag}
         value={tag}
       />
-      {data.students &&
+      {data.length > 0 &&
         search.length === 0 &&
-        data.students.map((student, idx) => (
+        data.map((student, idx) => (
           <StundentsIndexItem
             key={idx}
             student={student}

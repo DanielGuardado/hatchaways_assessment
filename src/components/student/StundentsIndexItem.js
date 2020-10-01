@@ -9,14 +9,15 @@ export default function StundentsIndexItem({ student }) {
   const [studentTags, setStudentTags] = useState(
     Object.assign({}, student, { tags: [] })
   );
+
   const handleTag = (e) => {
     setTag(e.target.value);
   };
-  debugger;
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTags = studentTags["tags"].concat(tag);
     setStudentTags(Object.assign({}, studentTags, { tags: newTags }));
+    debugger;
   };
 
   function getAvg(grades) {
