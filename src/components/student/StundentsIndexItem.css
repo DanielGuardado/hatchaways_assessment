@@ -9,16 +9,8 @@
 }
 
 .expand-btn {
-  /* position: relative;
-  left: 88%;
-  top: 0px;
-  font-size: 50px;
-  font-weight: bold;
-  height: 20px;
-  color: #cfcfcf; */
   position: relative;
   left: 88%;
-  /* top: 0px; */
   font-size: 50px;
   font-weight: bold;
   height: 0px;
@@ -28,6 +20,10 @@
   outline: none;
   border: none;
   background: none;
+}
+.expand-btn:hover {
+  cursor: pointer;
+  color: black;
 }
 
 .card-holder {
