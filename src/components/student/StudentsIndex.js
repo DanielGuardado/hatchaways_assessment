@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import StundentsIndexItem from "./StundentsIndexItem";
 import "./Student.css";
 
@@ -29,35 +30,32 @@ export default function StudentsIndex() {
   }, []);
 
   useEffect(() => {
-    let results = [];
+    const results = [];
 
-    for (const item in data) {
-      const lowerCaseFistName = data[item]["firstName"].toLowerCase();
-      const lowerCaseLastName = data[item]["lastName"].toLowerCase();
-
+    for (const key in data) {
+      const lowerCaseFistName = data[key]["firstName"].toLowerCase();
+      const lowerCaseLastName = data[key]["lastName"].toLowerCase();
       if (
         lowerCaseFistName.includes(search) ||
         lowerCaseLastName.includes(search)
       ) {
-        results.push(data[item]);
+        results.push(data[key]);
       }
     }
     setSearchResults(results);
   }, [search, data]);
 
   useEffect(() => {
-    let results = [];
-    if (!data) return;
-    for (const item in data) {
-      const tagItems = data[item]["tags"];
-      // && tagItems[0].includes(tag)
+    const results = [];
+    for (const key in data) {
+      const tagItems = data[key]["tags"];
       if (tagItems.length > 0) {
         for (const t of tagItems) {
-          if (t.includes(tag)) results.push(data[item]);
+          if (t.includes(tag) && !results.includes(data[key]))
+            results.push(data[key]);
         }
       }
     }
-
     setSearchResults(results);
   }, [tag, data]);
 
@@ -67,8 +65,8 @@ export default function StudentsIndex() {
         data[key] = dataObject;
       }
     }
-    // setData(data);
   };
+
   const handleTagClick = (tag) => {
     setTag(tag);
   };
@@ -76,7 +74,7 @@ export default function StudentsIndex() {
   const handleSearch = (e) => {
     setSearch(e.target.value.toLowerCase());
   };
-  const handleTag = (e) => {
+  const handleTagSearch = (e) => {
     setTag(e.target.value.toLowerCase());
   };
 
@@ -96,18 +94,16 @@ export default function StudentsIndex() {
         placeholder="Search by tags"
         type="text"
         name="tag"
-        onChange={handleTag}
+        onChange={handleTagSearch}
         value={tag}
         onClick={() => setSearch("")}
       />
-      {data.length > 0 &&
-        search.length === 0 &&
+      {search.length === 0 &&
         tag.length === 0 &&
         data.map((student, idx) => (
           <StundentsIndexItem
             key={idx}
             student={student}
-            handleTag={handleTag}
             handleTagFilter={handleTagFilter}
             handleTagClick={handleTagClick}
           />
@@ -119,7 +115,6 @@ export default function StudentsIndex() {
               key={idx}
               handleTagClick={handleTagClick}
               student={student}
-              handleTag={handleTag}
               handleTagFilter={handleTagFilter}
             />
           );
