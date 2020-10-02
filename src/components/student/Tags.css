@@ -1,0 +1,18 @@
+.tags-ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  padding-left: 0;
+}
+
+.tags-li {
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  border-radius: 2px;
+  background: #dcdcdc;
+  padding: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 2px;
+}

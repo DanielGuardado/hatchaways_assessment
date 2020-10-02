@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import StundentsIndexItem from "./StundentsIndexItem";
-import "./Student.css";
+import "./StudentIndex.css";
 
 export default function StudentsIndex() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const [tag, setTag] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [tag, setTag] = useState("");
 
   const getData = async () => {
     try {
@@ -98,27 +98,26 @@ export default function StudentsIndex() {
         value={tag}
         onClick={() => setSearch("")}
       />
-      {search.length === 0 &&
-        tag.length === 0 &&
-        data.map((student, idx) => (
-          <StundentsIndexItem
-            key={idx}
-            student={student}
-            handleTagFilter={handleTagFilter}
-            handleTagClick={handleTagClick}
-          />
-        ))}
-      {(search.length || tag.length) > 0 &&
-        searchResults.map((student, idx) => {
-          return (
+      {search.length === 0 && tag.length === 0
+        ? data.map((student, idx) => (
             <StundentsIndexItem
               key={idx}
-              handleTagClick={handleTagClick}
               student={student}
               handleTagFilter={handleTagFilter}
+              handleTagClick={handleTagClick}
             />
-          );
-        })}
+          ))
+        : (search.length || tag.length) > 0 &&
+          searchResults.map((student, idx) => {
+            return (
+              <StundentsIndexItem
+                key={idx}
+                handleTagClick={handleTagClick}
+                student={student}
+                handleTagFilter={handleTagFilter}
+              />
+            );
+          })}
     </div>
   );
 }

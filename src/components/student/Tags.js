@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Tags.css";
+
 export default function Tags({ tags, handleTagClick }) {
   return (
     <ul className="tags-ul">

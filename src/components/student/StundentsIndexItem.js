@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import Tags from "./Tags";
 
+import Tags from "./Tags";
 import TestScores from "./TestScores";
+import "./StundentsIndexItem.css";
 
 export default function StundentsIndexItem({
-  student,
-  handleTagFilter,
   handleTagClick,
+  handleTagFilter,
+  student,
 }) {
   const [expandedView, setExpandedView] = useState(false);
-  const [tag, setTag] = useState("");
   const [studentTags, setStudentTags] = useState(Object.assign({}, student));
+  const [tag, setTag] = useState("");
 
   const handleTag = (e) => {
     setTag(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTags = studentTags["tags"].concat(tag);
@@ -40,7 +42,6 @@ export default function StundentsIndexItem({
       >
         {expandedView ? "-" : "+"}
       </button>
-
       <div className="card-holder">
         <img className="profile-pic" src={student.pic} alt="Profile Pic" />
       </div>

@@ -12,7 +12,7 @@
   padding-top: 110px;
 }
 
-.card {
+/* .card {
   border-bottom: solid 2px #e2e2e2;
   width: 100%;
   display: flex;
@@ -20,31 +20,31 @@
   padding-left: 10%;
   padding-top: 5%;
   padding-bottom: 5%;
-}
+} */
 
-.profile-pic {
+/* .profile-pic {
   width: 150px;
   height: 150px;
   border: solid 1px #e2e2e2;
   border-radius: 100px;
-}
+} */
 
-.card-holder {
+/* .card-holder {
   align-items: center;
   display: flex;
-}
+} */
 
-.name {
+/* .name {
   font-size: 50px;
   font-weight: 800;
-}
+} */
 
-.details {
+/* .details {
   color: #636363;
   font-size: 16px;
   padding: 15px 0px 0px 20px;
   font-weight: 500;
-}
+} */
 
 #name-input {
   font-size: 25px;
@@ -83,7 +83,7 @@
 #tag-input:focus {
   border-bottom: solid 2px #838383;
 }
-#add-tag-input {
+/* #add-tag-input {
   font-size: 25px;
   outline: none;
   border: 0;
@@ -96,19 +96,19 @@
 
 #add-tag-input:focus {
   border-bottom: solid 2px #838383;
-}
+} */
 
-.expand-btn {
-  /* position: relative;
+/* .expand-btn {
+  position: relative;
   left: 88%;
   top: 0px;
   font-size: 50px;
   font-weight: bold;
   height: 20px;
-  color: #cfcfcf; */
+  color: #cfcfcf;
   position: relative;
   left: 88%;
-  /* top: 0px; */
+  top: 0px;
   font-size: 50px;
   font-weight: bold;
   height: 0px;
@@ -118,30 +118,24 @@
   outline: none;
   border: none;
   background: none;
-}
+} */
 
 .expand-btn:hover {
   cursor: pointer;
   color: black;
 }
 
-ul,
-li {
-  text-decoration: none;
-  list-style-type: none;
-}
-
-.scores-ul {
+/* .scores-ul {
   padding-left: 0;
   display: flex;
   flex-direction: column;
-}
+} */
 
-.details-holder {
+/* .details-holder {
   padding-left: 20px;
-}
+} */
 
-.tags-ul {
+/* .tags-ul {
   display: flex;
   flex-wrap: wrap;
   width: 50%;
@@ -158,4 +152,4 @@ li {
   cursor: pointer;
   margin-right: 10px;
   margin-top: 2px;
-}
+} */

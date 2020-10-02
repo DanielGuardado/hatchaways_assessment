@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./TestScores.css";
+
 export default function TestScores({ scores }) {
   return (
     <ul className="scores-ul">

@@ -1,0 +1,73 @@
+.card {
+  border-bottom: solid 2px #e2e2e2;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.expand-btn {
+  /* position: relative;
+  left: 88%;
+  top: 0px;
+  font-size: 50px;
+  font-weight: bold;
+  height: 20px;
+  color: #cfcfcf; */
+  position: relative;
+  left: 88%;
+  /* top: 0px; */
+  font-size: 50px;
+  font-weight: bold;
+  height: 0px;
+  color: #cfcfcf;
+  appearance: none;
+  width: 0px;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.card-holder {
+  align-items: center;
+  display: flex;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border: solid 1px #e2e2e2;
+  border-radius: 100px;
+}
+
+.details-holder {
+  padding-left: 20px;
+}
+
+.name {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.details {
+  color: #636363;
+  font-size: 16px;
+  padding: 15px 0px 0px 20px;
+  font-weight: 500;
+}
+#add-tag-input {
+  font-size: 25px;
+  outline: none;
+  border: 0;
+  border-bottom: solid 2px #e2e2e2;
+  padding-top: 15px;
+  font-weight: lighter;
+  top: 201px;
+  height: 40px;
+}
+
+#add-tag-input:focus {
+  border-bottom: solid 2px #838383;
+}
