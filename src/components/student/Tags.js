@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function Tags({ tags }) {
+export default function Tags({ tags, handleTagClick }) {
   return (
-    <ul>
+    <ul className="tags-ul">
       {tags.map((tag, idx) => (
-        <li key={idx}>{tag}</li>
+        <li onClick={() => handleTagClick(tag)} className="tags-li" key={idx}>
+          {tag}
+        </li>
       ))}
     </ul>
   );

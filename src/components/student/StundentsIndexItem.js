@@ -3,12 +3,14 @@ import Tags from "./Tags";
 
 import TestScores from "./TestScores";
 
-export default function StundentsIndexItem({ student }) {
+export default function StundentsIndexItem({
+  student,
+  handleTagFilter,
+  handleTagClick,
+}) {
   const [expandedView, setExpandedView] = useState(false);
   const [tag, setTag] = useState("");
-  const [studentTags, setStudentTags] = useState(
-    Object.assign({}, student, { tags: [] })
-  );
+  const [studentTags, setStudentTags] = useState(Object.assign({}, student));
 
   const handleTag = (e) => {
     setTag(e.target.value);
@@ -16,8 +18,12 @@ export default function StundentsIndexItem({ student }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTags = studentTags["tags"].concat(tag);
+    handleTagFilter(
+      student.id,
+      Object.assign({}, studentTags, { tags: newTags })
+    );
     setStudentTags(Object.assign({}, studentTags, { tags: newTags }));
-    debugger;
+    setTag("");
   };
 
   function getAvg(grades) {
@@ -28,25 +34,17 @@ export default function StundentsIndexItem({ student }) {
 
   return (
     <div className="card">
-      {!expandedView ? (
-        <a
-          className="expand-btn"
-          onClick={() => setExpandedView(!expandedView)}
-        >
-          +
-        </a>
-      ) : (
-        <a
-          className="expand-btn"
-          onClick={() => setExpandedView(!expandedView)}
-        >
-          -
-        </a>
-      )}
+      <button
+        className="expand-btn"
+        onClick={() => setExpandedView(!expandedView)}
+      >
+        {expandedView ? "-" : "+"}
+      </button>
+
       <div className="card-holder">
         <img className="profile-pic" src={student.pic} alt="Profile Pic" />
       </div>
-      <div>
+      <div className="details-holder">
         <div className="name">
           {student.firstName} {student.lastName}
         </div>
@@ -58,9 +56,12 @@ export default function StundentsIndexItem({ student }) {
           {expandedView && (
             <>
               <TestScores scores={student.grades} />
-              {studentTags.tags.length > 0 && <Tags tags={studentTags.tags} />}
+              {studentTags.tags.length > 0 && (
+                <Tags handleTagClick={handleTagClick} tags={studentTags.tags} />
+              )}
               <form onSubmit={handleSubmit}>
                 <input
+                  value={tag}
                   onChange={handleTag}
                   placeholder="Add a tag"
                   id="add-tag-input"
